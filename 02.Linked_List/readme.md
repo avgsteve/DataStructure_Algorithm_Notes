@@ -13,7 +13,7 @@
 
   2. 移除節點 Remove node <br> ![移除節點 Remove node](https://i.stack.imgur.com/rVCdE.png) [source](https://stackoverflow.com/questions/41474163/singly-linked-list-remove)
 
-  3. 反轉鍊表 Reverse Linked List  <br> ![反轉鍊表 Reverse Linked List](https://javabypatel.blogspot.com/2017/05/reverse-linked-list-in-java.html) [source](https://javabypatel.blogspot.com/2017/05/reverse-linked-list-in-java.html)
+  3. 反轉鍊表 Reverse Linked List  <br> ![反轉鍊表 Reverse Linked List](https://1.bp.blogspot.com/-r3ghBObtL0s/Vm45-911zRI/AAAAAAAAAxY/SYnqwmvNS04/s640/reverse-linked-list.png) [source](https://javabypatel.blogspot.com/2017/05/reverse-linked-list-in-java.html)
    
 
 ## 操作的 BigO
