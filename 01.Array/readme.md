@@ -6,3 +6,6 @@
 
   ![圖例2](https://media.geeksforgeeks.org/wp-content/uploads/array-2.png)
   [source](https://www.geeksforgeeks.org/array-data-structure/)
+
+  ![圖例3](https://github.com/avgsteve/DataStructure_Algorithm_Notes/blob/main/01.Array/array_memory_block.jpg?raw=true)
+  [source](https://u.geekbang.org/)
