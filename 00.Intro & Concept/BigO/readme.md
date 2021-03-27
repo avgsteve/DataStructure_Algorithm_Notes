@@ -3,8 +3,14 @@
 [BigO的各種效率](./BigO.js);
 
 ### BigO Example
-[O(N)](./BigO-sum_1ToN.js)
+[O(N) (包括 recursion)](./BigO-sum_1ToN.js)
 
+#### to do:
+ 之後會再回來看
+ 1. Binary Tree traverse(二元數遍歷) : 前序，中序，後序的 Big(O)?
+ 2. Graph traverse(圖形遍歷) 的 Big(O)?
+ 3. DFS(深度優先)，BFS(廣度優先) 的 Big(O)?
+ 4. Binary Search(二元搜尋) 的 Big(O)? 
 
 ### Reference
 [Big O CheatSheet](https://www.bigocheatsheet.com/) 

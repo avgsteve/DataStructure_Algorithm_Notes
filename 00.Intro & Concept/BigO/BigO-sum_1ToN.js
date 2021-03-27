@@ -43,7 +43,7 @@ function sumImproved(x) {
 // console.log('result: ', sum_improved); // 總共會計算50次
 
 
-// 2. 1 到 數字 x 的總和 (使用遞迴 recursion)
+// 3. 1 到 數字 x 的總和 (使用遞迴 recursion)
 
 function sumRecursion(x) {
   if (x === 0) return x;
