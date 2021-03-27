@@ -1,3 +1,5 @@
+// 1. 1 到 數字 x 的總和
+
 function sum(x) {
   let sum = 0; // initial sum
   for (let n = 1; n <= x; n++) {
@@ -15,6 +17,8 @@ function sum(x) {
 // let resultOne = sum(100);
 // console.log('result: ', resultOne); // 總共會計算100次
 
+
+// 2. 1 到 數字 x 的總和 (使用一半的次數)
 
 function sumImproved(x) {
   let sum = 0; // initial sum
@@ -38,6 +42,9 @@ function sumImproved(x) {
 // let sum_improved = sumImproved(100);
 // console.log('result: ', sum_improved); // 總共會計算50次
 
+
+// 2. 1 到 數字 x 的總和 (使用遞迴 recursion)
+
 function sumRecursion(x) {
   if (x === 0) return x;
 
@@ -50,8 +57,8 @@ function sumRecursion(x) {
   return x + sumRecursion(x - 1);
 }
 
-let sum_recursion = sumRecursion(100);
-console.log('result: ', sum_recursion); // 總共會計算50次
+// let sum_recursion = sumRecursion(100);
+// console.log('result: ', sum_recursion); // 總共會計算100次
 
 
 
