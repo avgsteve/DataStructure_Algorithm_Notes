@@ -1,9 +1,9 @@
 ### BigO
 
-[BigO的各種效率](./../BigO.js);
+[BigO的各種效率](./BigO.js);
 
 ### BigO Example
-[O(N)](./../BigO-sum_1ToN.js)
+[O(N)](./BigO-sum_1ToN.js)
 
 
 ### Reference
