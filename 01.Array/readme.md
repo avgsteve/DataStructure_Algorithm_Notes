@@ -1,6 +1,6 @@
 # Array
 
-### 使用連續的記憶體區塊
+### 使用連續的記憶體區塊 (contiguous memory block)
   ![圖例1](http://www.mathcs.emory.edu/~cheung/Courses/170/Syllabus/09/FIGS/array02a.gif)
   [source](http://www.mathcs.emory.edu/~cheung/Courses/170/Syllabus/09/basics.html)
 
