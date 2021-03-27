@@ -7,5 +7,5 @@
 
 ## 操作
 
-  1. ![新增節點 Add new node](https://www.opentechguides.com/images/howto/howto_14201.png) [source](https://www.opentechguides.com/how-to/article/c/142/linked-list-insert.html)
+  1. 新增節點 Add new node ![新增節點 Add new node](https://www.opentechguides.com/images/howto/howto_14201.png) [source](https://www.opentechguides.com/how-to/article/c/142/linked-list-insert.html)
 
