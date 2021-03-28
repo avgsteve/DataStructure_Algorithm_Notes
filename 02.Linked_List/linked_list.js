@@ -57,8 +57,8 @@ class LinkedList {
       // head 跟 tail 都是null，所以都要指向新的節點
       this._head = newNode;
       this._tail = newNode;
-    } else {
 
+    } else {
       // 狀況2: list 中已有元素:
       // 則目前 this._tail 指向的是目前最後一個 "節點" 
       // ( 例如 this._tail 所代表的node 為 nodeA)。

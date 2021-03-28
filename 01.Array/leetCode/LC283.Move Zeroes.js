@@ -49,7 +49,7 @@ let moveZeroes1 = function (nums) {
 };
 
 
-let moveZeroes2 = function (nums) {
+moveZeroes2 = function (nums) {
 
   // pointer 1 : posForNonZero 任何非零的元素都要丟到 nums 目前在posForNonZero的位置
   // 當有非零的元素丟到 posForNonZero 的時候，posForNonZero才會往後移動一位
@@ -122,3 +122,5 @@ let moveZeros3 = function (nums) {
 let nums = [0, 0, 3, 0, 1, 2, 0, 1, 0, 5, 4];
 let updateNums = moveZeros3(nums);
 console.log(nums);
+
+module.exports.default = moveZeroes2;

@@ -4,10 +4,10 @@
             "jest"
         ]
     },
-        "compilerOptions": {
-        "target": "es5",
-        "module": "commonjs"
-    },
+    //     "compilerOptions": {
+    //     "target": "es5",
+    //     "module": "commonjs"
+    // },
     "exclude": [
         "node_modules"
     ]
