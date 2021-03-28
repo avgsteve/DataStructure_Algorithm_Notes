@@ -1,7 +1,8 @@
 class Node {
-  constructor(value) {
+  constructor(value, nextNode = null, randomNode = null) {
     this.value = value;
-    this.next = null;
+    this.next = nextNode || null;
+    this.random = randomNode || null;
   }
 }
 
