@@ -1,36 +1,21 @@
 class Node {
   constructor(value) {
-    this._value = value;
-    this._nextNode = null;
-    // Debug message
-    console.log(`Creating a new node:`, "\n ", this);
-  }
-
-  get nextNode() {
-    return this._nextNode;
-  }
-
-
-  set nextNode(node) {
-    this._nextNode = node;
-  }
-
-  get value() {
-    return this._value;
+    this.value = value;
+    this.next = null;
   }
 }
 
 class LinkedList {
   constructor(array = []) {
-    this._length = 0; // 起始的長度
-    this._head = null;
-    this._tail = this._head;
-    // 剛建立的新LinkedList只有head跟tail，所以先把tail的內容指向head
-    console.log("A linked list was created!");
-    console.log(this);
+    this.length = 0; // 起始的長度
+    this.head = null;
+    this.tail = this.head;
+
+    console.log('array: ', array);
 
     if (array.length !== 0) {
-      for (let item in array) {
+      for (let item of array) {
+        // console.log('append item: ', item);
         this.append(item);
       }
       return this;
@@ -41,15 +26,16 @@ class LinkedList {
 
   printListAsArray() {
     const array = [];
-    let currentNode = this._head; // 從頭開始 loop
+
+    let currentNode = this.head; // 從頭節點開始 loop
+
     while (currentNode !== null) {
       array.push(currentNode.value);
-      currentNode = currentNode.nextNode;
+      currentNode = currentNode.next;
     }
     //Debug message:
     console.log(
-      `
-    Printing complete Linked List as Object:\n`,
+      `Printing complete Linked List as Object:\n`,
       JSON.stringify(this)
     );
 
@@ -62,36 +48,32 @@ class LinkedList {
     const newNode = new Node(value);
 
     // 狀況1: list 中沒有任何元素
-    if (this._head === null) {
+    if (this.head === null) {
       // head 跟 tail 都是null，所以都要指向新的節點
-      this._head = newNode;
-      this._tail = newNode;
+      this.head = newNode;
+      this.tail = newNode;
 
     } else {
       // 狀況2: list 中已有元素:
-      // 則目前 this._tail 指向的是目前最後一個 "節點" 
-      // ( 例如 this._tail 所代表的node 為 nodeA)。
+      // 則目前 this.tail 指向的是目前最後一個 "節點" 
+      // ( 例如 this.tail 所代表的node 為 nodeA)。
 
-      // 這時的 this._tail (nodeA) 的 ._nextNode 會是 null
-      // 所以要把 this._tail (nodeA) 的 ._nextNode 從 null，改為指向newNode(例如 nodeB) 的位置
+      // 這時的 this.tail (nodeA) 的 .next 會是 null
+      // 所以要把 this.tail (nodeA) 的 .next 從 null，改為指向newNode(例如 nodeB) 的位置
 
-      // 結論: 此操作只是為了將 this._tail 所代表的 nodeA 的 ._nextNode  接到新的節點
-      this._tail._nextNode = newNode;
+      // 結論: 此操作只是為了將 this.tail 所代表的 nodeA 的 .next  接到新的節點
+      this.tail.next = newNode;
 
-      // 接著把 this._tail 的 'reference' 指向新的節點(例如 nodeB)
+      // 接著把 this.tail 的 'reference' 指向新的節點(例如 nodeB)
       // 這樣就會更新this._tail所指向的節點
-      this._tail = newNode;
+      this.tail = newNode;
 
       // 以上兩行code 自己想出來的解釋
       // https://www.udemy.com/course/master-the-coding-interview-data-structures-algorithms/learn/lecture/12309366#questions/13368536/
     }
 
-    // Debug message:
-    console.log(
-      `The new node`, newNode, `has been appended.`
-    );
+    this.length++;
 
-    this._increaseSizeOfList();
     return this;
   }
 
@@ -101,15 +83,16 @@ class LinkedList {
     const newNode = new Node(value);
 
     // 如果中沒有任何元素，只須利用append的邏輯進行處理就可以了
-    if (this._head === null) return this.append(value);
+    if (this.head === null) return this.append(value);
 
     // 若是已經有節點，將目前的 head 接在新節點後面
     // (也就是等於把新節點，接在 head 前面)
-    newNode._nextNode = this._head;
+    newNode.next = this.head;
 
-    // 把 this._head 指向這新的 node 位置
-    this._head = newNode;
-    this._increaseSizeOfList();
+    // 把 this.head 指向這新的 node 位置
+    this.head = newNode;
+
+    this.length++;
 
     return this;
   }
@@ -135,13 +118,13 @@ class LinkedList {
     // 先找到要插入的位置的前一個節點 prevNodeA
     // 和目前要被插入位置的節點 nodeB
     const prevNodeA = this.findNodeByIndex(indexToInsert - 1);
-    const nodeB_atCurrentIndex = prevNodeA._nextNode;
+    const nodeB_atCurrentIndex = prevNodeA.next;
 
     // 然後把前一個節點的nextNodeA 指向 newNode，
     // newNode (nodeC) 的 nextNode 節點 ，指向 nodeB_atCurrentIndex
-    prevNodeA._nextNode = newNodeC;
-    newNodeC._nextNode = nodeB_atCurrentIndex;
-    this._increaseSizeOfList();
+    prevNodeA.next = newNodeC;
+    newNodeC.next = nodeB_atCurrentIndex;
+    this.length++;
     return this.printListAsArray();
   }
 
@@ -152,7 +135,7 @@ class LinkedList {
     let searchCounter = 0;
 
     // 因為
-    let currentNode = this._head;
+    let currentNode = this.head;
 
     console.log(`
       開始搜尋位置為${index}的節點...`
@@ -165,7 +148,7 @@ class LinkedList {
       // 1) 目前的node已經碰到 null，表示已無下個節點
       // 2) 如果counter已經等於要搜尋的位置index，就可以停止
 
-      currentNode = currentNode._nextNode;  // 3)
+      currentNode = currentNode.next;  // 3)
       searchCounter++;                      // 4)
 
       // 3) 透過 while loop 取用每個節點的下一個節點 nextNode
@@ -183,17 +166,17 @@ class LinkedList {
 
   // 使用值找出節點
   findNodeByValue(value) {
-    let currentNodeToFind = this._head; // 從List的head開始找
+    let currentNodeToFind = this.head; // 從List的head開始找
 
-    while (currentNodeToFind._nextNode) {
+    while (currentNodeToFind.next) {
       //
-      if (currentNodeToFind._value === value) {
+      if (currentNodeToFind.value === value) {
         console.log(`Found the node: \n`, currentNodeToFind);
         return currentNodeToFind;
       }
 
       // 如果沒找到就用下一個節點
-      currentNodeToFind = currentNodeToFind._nextNode;
+      currentNodeToFind = currentNodeToFind.next;
     }
     return null;
   }
@@ -207,27 +190,27 @@ class LinkedList {
     let nodeToRemove;
 
     if (indexOfTargetNode === 0) {
-      nodeToRemove = this._head;
-      this._head = this._head._nextNode;
-      this._decreaseSizeOfList();
+      nodeToRemove = this.head;
+      this.head = this.head.next;
       return nodeToRemove;
     }
 
     // 狀況二: 如果不是移除第一個node，先找出要被移除的目標節點的前一個節點
     const prevNodeA = this.findNodeByIndex(indexOfTargetNode - 1);
-    const nodeBToRemove = prevNodeA._nextNode;
-    const nodeC = nodeBToRemove._nextNode; // nodeC 就是 要被移除的 nodeB 的下一個節點
+    const nodeBToRemove = prevNodeA.next;
+    const nodeC = nodeBToRemove.next; // nodeC 就是 要被移除的 nodeB 的下一個節點
 
-    // 直接把NodeA的 ._nextNode 接到nodeC， nodeB就會不見 (被garbage collection)
-    prevNodeA._nextNode = nodeC;
+    // 直接把NodeA的 .next 接到nodeC， nodeB就會不見 (被garbage collection)
+    prevNodeA.next = nodeC;
 
-    this._decreaseSizeOfList();
+    this.length--;
+
     return nodeBToRemove;
   }
 
 
   get size() {
-    return this._length;
+    return this.length;
   }
 
 
@@ -242,29 +225,22 @@ class LinkedList {
     return result;
   }
 
-  _increaseSizeOfList() {
-    this._length++;
-  }
-
-  _decreaseSizeOfList() {
-    this._length--;
-  }
 
   reverseList() {
     /*
-      ex:      (this._head)                         (this._tail)
+      ex:      (this.head)                         (this.tail)
                     777  ->  9  ->  5  ->  100  ->  6 ->  7  ->  null    
 
-      轉成     (this._tail)                         (this._head)
+      轉成     (this.tail)                         (this.head)
           null  <-  777  <-  9  <-  5  <-  100  <-  6  <- 7 
     */
 
     let newNextNode = null;        // 1)
-    let currentNode = this._head;  // 2)
-    this._tail = currentNode;      // 2-1)
+    let currentNode = this.head;  // 2)
+    this.tail = currentNode;      // 2-1)
     // 1) 最一開始要讓頭部位置的節點 指向的 prevNode
     // 2) 目前要處理的節點 (一開始是從 this._head位置上的節點開始)
-    // 2-1) 在一開始就先把 this._tail 指向 第一個位置，也就是 this._head 的節點
+    // 2-1) 在一開始就先把 this.tail 指向 第一個位置，也就是 this.head 的節點
 
     while (currentNode !== null) {
 
@@ -286,55 +262,9 @@ class LinkedList {
 
     }
 
-    return this._head = newNextNode; // new this._head
+    return this.head = newNextNode; // new this.head
   }
 
 }
 
-console.log(`=== 測試建立 linked list ===`);
-
-let newLList1 = new LinkedList();
-console.log(newLList1.printListAsArray()); // []
-newLList1.prepend(2);
-console.log(newLList1.printListAsArray()); // [ 2 ]
-console.log(newLList1.size); // 1
-
-
-console.log(`=== 測試 .prepend & .append ===`);
-let newLList2 = new LinkedList();
-newLList2.prepend(1);
-newLList2.prepend(9);
-newLList2.append(5);
-newLList2.append(6);
-newLList2.append(7);
-newLList2.prepend(10);
-console.log(newLList2.printListAsArray()); // [10, 9, 1, 5, 6, 7]
-console.log(newLList2.findNodeByIndex(1));
-
-console.log('newLList2 #1: ', newLList2);
-
-console.log(`=== 測試 .removeNodeAtIndex ===`);
-console.log(newLList2.printListAsArray()); // [10, 9, 1, 5, 6, 7]
-console.log(newLList2.removeNodeAtIndex(2));
-console.log(newLList2.removeNodeAtIndex(0));
-console.log(newLList2.printListAsArray()); // [9, 5, 6, 7]
-
-console.log('newLList2 #2: ', newLList2);
-
-console.log(`=== 測試 .insertAtIndex ===`);
-console.log(newLList2.printListAsArray()); // [9, 5, 6, 7]
-
-console.log(newLList2.insertAtIndex());
-console.log(newLList2.insertAtIndex(2, 1010));
-console.log(newLList2.printListAsArray()); // [9, 5, 100, 6, 7]
-
-console.log(newLList2.insertAtIndex(0, 777));
-console.log(newLList2.printListAsArray()); // [777, 9, 5, 100, 6, 7]
-console.log('newLList2 #3: ', newLList2);
-
-
-newLList2.reverseList();
-console.log(newLList2.printListAsArray());
-console.log('newLList2 #4: ', newLList2);
-
-module.exports = LinkedList;
+module.exports = { LinkedList, Node };

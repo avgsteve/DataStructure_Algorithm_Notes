@@ -11,12 +11,13 @@
  * @param {ListNode} head
  * @return {ListNode}
  */
-var middleNode = function (head) {
+module.exports.middleNode = function (head) {
   let fast = slow = head;
   while (fast && fast.next) {
     fast = fast.next.next;
     slow = slow.next;
   }
-  return slow;
+  return slow.value;
 
 };
+
