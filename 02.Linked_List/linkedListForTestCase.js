@@ -226,42 +226,35 @@ class LinkedList {
 
 
   reverseList() {
-    /*
-      ex:      (this.head)                         (this.tail)
-                    777  ->  9  ->  5  ->  100  ->  6 ->  7  ->  null    
-
-      轉成     (this.tail)                         (this.head)
-          null  <-  777  <-  9  <-  5  <-  100  <-  6  <- 7 
-    */
-
-    let newNextNode = null;        // 1)
-    let currentNode = this.head;  // 2)
-    this.tail = currentNode;      // 2-1)
-    // 1) 最一開始要讓頭部位置的節點 指向的 prevNode
-    // 2) 目前要處理的節點 (一開始是從 this._head位置上的節點開始)
-    // 2-1) 在一開始就先把 this.tail 指向 第一個位置，也就是 this.head 的節點
-
-    while (currentNode !== null) {
-
-      // 進行第一步，把 currentNode (777) 的 nextNode 指向 newNextNode (的null)
-      // ( 參照 4) )
-
-      // 但是要先處理 currentNode.nextNode 所指向的 下一個節點 (例如 9)
-      // 不然一改變 currentNode.nextNode 指向的節點之後，
-      // 原本  currentNode.nextNode 所指向的節點 (例如 9) 就會消失
-      // 所以要存在 3) 變數裡面，這樣才能保存住 第一個 node 和其之後的所有節點
-
-      let nextNodeFromCurrentNode = currentNode.nextNode;   // 3)
-
-      currentNode.nextNode = newNextNode; // 4)
-
-      newNextNode = currentNode; // 5)
-      currentNode = nextNodeFromCurrentNode;  // 6)
-      // 5) 接著就把已經處理完的 currentNode 存到 newNextNode 變數，因為 newNextNode 要被作為下一個 被指向的 .nextNode 的 節點
-
+    let tmp = null;
+    let newHead = null;
+    while (this.head !== null) {
+      tmp = this.head;
+      this.head = this.head.next;
+      tmp.next = newHead;
+      newHead = tmp;
     }
 
-    return this.head = newNextNode; // new this.head
+    // console.log('reverseList執行過後的list:', JSON.stringify(this));
+    
+    this.head = this.tail;
+    let nodeToFindForTail = this.head;
+    while (nodeToFindForTail.next) {
+      nodeToFindForTail = nodeToFindForTail.next;
+    }
+    this.tail = nodeToFindForTail;
+    console.log(' nodeToFindForTail 執行過後的list:', this);
+
+    return this;
+
+
+  }
+
+
+  reverseCopiedList() {
+    let arrayOfReversed = this.printListAsArray().reverse();
+    let listFromReversedArray = new LinkedList(arrayOfReversed);
+    return listFromReversedArray;
   }
 
 }
