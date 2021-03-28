@@ -100,7 +100,25 @@ let moveZeroes2 = function (nums) {
 
 };
 
+
+// 最快的解法 (64ms，不過不符合題目的要求，就是不能建立新array)
+let moveZeros3 = function (nums) {
+
+  let arr = [], temp = [];
+  while (nums.length > 0) {
+    let current = nums.shift();
+    if (current !== 0) {
+      arr.push(current);
+      continue;
+    }
+    temp.push(0);
+  }
+  nums.push(...arr, ...temp);
+
+  return nums;
+}
+
 // let nums = [0, 1, 0, 3, 12];
 let nums = [0, 0, 3, 0, 1, 2, 0, 1, 0, 5, 4];
-let updateNums = moveZeroes2(nums);
+let updateNums = moveZeros3(nums);
 console.log(nums);

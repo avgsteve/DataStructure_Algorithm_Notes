@@ -80,3 +80,9 @@
 ### Sorting
 
 ### Divide & Conquer
+
+
+## 其他
+- Jest 測試環境 jsconfig.json <br> ref: [Setting up Visual Studio Code intellisense for Jest globals](https://humanwhocodes.com/snippets/2019/05/jest-globals-intellisense-visual-studio-code/)
+
+	
