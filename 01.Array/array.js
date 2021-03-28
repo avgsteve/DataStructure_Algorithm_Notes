@@ -39,7 +39,7 @@ class dsArray {
     this._updateArrayLengthByNumber(-1);
 
     // Message for debugging
-    console.log(`The item "${lastItemInArray}" has been popped out from array`);
+    // console.log(`The item "${lastItemInArray}" has been popped out from array`);
 
     return lastItemInArray; // 如同內建pop()方法，執行後傳回被刪除的元素
   }
@@ -62,10 +62,11 @@ class dsArray {
     // 接著就可以在要插入的位置寫入新的資料
     this._data[indexToInsert] = newItem;
     this._updateArrayLengthByNumber(1);
-    //Debug message
-    console.log(
-      `The item "${newItem}" has been inserted at position ${indexToInsert}`
-    );
+
+    // //Debug message
+    // console.log(
+    //   `The item "${newItem}" has been inserted at position ${indexToInsert}`
+    // );
 
     return this.length;
   }
@@ -110,10 +111,10 @@ class dsArray {
     }
     itemString = "[" + itemString.slice(0, -1) + " ]";
 
-    //Debug message
-    console.log(`
-    (showAllItems:) Current items in Array: ${itemString}
-    `);
+    // //Debug message
+    // console.log(`
+    // (showAllItems:) Current items in Array: ${itemString}
+    // `);
 
     return itemString;
   }
@@ -173,7 +174,7 @@ class dsArray {
       indexToAccessArray < 0 // 負數
       || indexToAccessArray >= this._currentArraylength // 大於目前 array 長度
     );
-    console.log(`The input index is ${result ? "correct" : "incorrect"}`);
+    // console.log(`The input index is ${result ? "correct" : "incorrect"}`);
     return result;
   }
 
@@ -193,87 +194,5 @@ class dsArray {
 
 }
 
-const array = new dsArray();
-
-console.log(array.length); // 0
-console.log(`測試 ._isEmpty`);
-console.log(array._isEmpty()); // true
-console.log(array.length); // 0
-
-console.log(`測試 .push`);
-array.push("hi");
-console.log(array.length); // 1
-array.push("you");
-console.log(array.length); // 2
-
-// 以下的 console.log可以在沒有 jest 的時候，使用 VS Code 加上 Quokka extension 測試是否每個功能都正常
-
-// console.log(`測試 .deleteItemAtIndex`);
-// let deletedAt0 = array.deleteItemAtIndex(0);
-// console.log(deletedAt0); // hi
-// console.log(array.showAllItems()); // [you, !]
-
-// console.log(`測試 .insert`);
-// array.insert(6, ":)"); // insert 在超過Array長度的index位置 (等於push())
-// console.log(array.showAllItems()); // [ you, !, :) ]
-// array.insert(0, "hi");
-// console.log(array.showAllItems()); // [ hi, you, !, :) ]
-// array.insert(1, "how are"); // 插入 位置[1], 把包含 "you" 之後的資料都往後推一個位置 
-// console.log(array.showAllItems()); // [ hi, how are , you, !, :) ]
-
-// console.log(array._getAllItems()); // [ 'hi', 'how are' , 'you', '!', ':)' ]
-
-// let testArr = [];
-// console.log(array.forEachItem(e => {
-//   console.log(`item: ${e}`);
-//   testArr.push(`item: ${e}`);
-// }));
-// console.log(testArr); // [ 'item: hi', 'item: how are', 'item: you', 'item: !', 'item: :)' ] 
-
-// console.log(`測試 ._isIndexValid`);
-// console.log(array.length); // 5
-// console.log(array._isIndexValid(-1)); // false
-// console.log(array._isIndexValid(77)); // false
-// console.log(array._isIndexValid(5)); // false
-// console.log(array._isIndexValid(3)); // true
-
-// console.log(`測試 .dataAtIndex`);
-// console.log(array.dataAtIndex(0)); // hi
-// console.log(array.dataAtIndex(4)); // !
-// console.log(array.showAllItems()); // [ hi, how are, you, !, :) ]
-
-// console.log(`popped item #1: "${array.pop()}"`); // :)
-// console.log(array.showAllItems()); // [ hi, you, ! ]  (已經移除 ":)" )
-
-// console.log(`測試 .deleteItemAtIndex`);
-// console.log(
-//   `
-//   deleteItemAtIndex(0): "${array.deleteItemAtIndex(0)}"
-//   `
-// );
-// console.log(array.showAllItems());
-
-// console.log(`popped item #2: "${array.pop()}"`); // popped item: '!'
-
-// console.log(`測試 .push`);
-// array.push("are");
-// array.push("nice");
-// console.log('array', array);
-
-// /* console.log(array); 結果:
-//     {   
-//         0: 'how are',
-//         1: 'you',
-//         2: 'are',
-//         3: 'nice'
-//     };
-// */
-
-// console.log(`測試 .showAllItems @204`);
-// console.log(array.showAllItems()); // [ how are, you, are, nice ] 
-
-// // Testing error case
-// // 故意輸入String類別的數字、讓檢查機制丟出錯誤訊息
-// array._isIndexValid("22"); // Must use a valid number as index
 
 module.exports = dsArray;

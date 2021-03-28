@@ -92,7 +92,7 @@ test('測試 .insert 和 .deleteItemAtIndex', () => {
   array.insert(1, dataToInsert1);
   // insert 後檢查相同位置的值是否相符
   expect(array.dataAtIndex(1)).toEqual(dataToInsert1);
-  console.log('array #1: ', array);
+  // console.log('array #1: ', array);
 
   const dataToInsert2 = `🎆`;
   array.insert(0, dataToInsert2);

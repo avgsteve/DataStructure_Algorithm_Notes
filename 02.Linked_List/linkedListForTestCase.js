@@ -11,9 +11,7 @@ class LinkedList {
     this.head = null;
     this.tail = this.head;
 
-    console.log('array: ', array);
-
-    if (array.length !== 0) {
+   if (array.length !== 0) {
       for (let item of array) {
         // console.log('append item: ', item);
         this.append(item);
@@ -34,10 +32,10 @@ class LinkedList {
       currentNode = currentNode.next;
     }
     //Debug message:
-    console.log(
-      `Printing complete Linked List as Object:\n`,
-      JSON.stringify(this)
-    );
+    // console.log(
+    //   `Printing complete Linked List as Object:\n`,
+    //   JSON.stringify(this)
+    // );
 
     return array;
   }
