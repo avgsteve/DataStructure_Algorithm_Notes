@@ -1,17 +1,22 @@
-var climbStairs = function (n) {
-  if (n === 1) return 1;
-  if (n === 2) return 2;
+// https://leetcode.com/problems/middle-of-the-linked-list/
 
-
-  let step = [];
-  step[1] = 1;
-  step[2] = 2;
-
-  for (let i = 3; i <= n; i++) {
-    step[i] = step[i - 1] + step[i - 2];
+/**
+ * Definition for singly-linked list.
+ * function ListNode(val, next) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.next = (next===undefined ? null : next)
+ * }
+ */
+/**
+ * @param {ListNode} head
+ * @return {ListNode}
+ */
+var middleNode = function (head) {
+  let fast = slow = head;
+  while (fast && fast.next) {
+    fast = fast.next.next;
+    slow = slow.next;
   }
+  return slow;
 
-  return step[n];
 };
-
-module.exports = climbStairs;
