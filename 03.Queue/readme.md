@@ -118,4 +118,19 @@
 
 ## 衍生
 
-   1. Priority Queue
+   1. Priority Queue      
+      1. 特點
+         1. 按照優先級別取出
+      2. 效率
+      - Access & Delete:  
+        - O(log(n)) --> (比Queue的 O(1)慢) 
+      - Insert & Delete: 
+        - O(log(n)) --> (比Queue的 O(1)慢) 
+    
+      <!-- - Space Complexity: O(n) -->
+      <!-- - [https://www.bigocheatsheet.com](https://www.bigocheatsheet.com/) -->
+
+
+## Ref:
+
+   1. [Queues & Priority Queues - Beau teaches JavaScript](https://www.youtube.com/watch?v=bK7I79hcm08)
