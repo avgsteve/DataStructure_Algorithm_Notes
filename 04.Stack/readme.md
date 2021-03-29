@@ -19,8 +19,10 @@
 ## 應用:
 
    1. 尋找最近相關性: <br>
-      解釋: 具有從內向外擴散，或是從外向內收斂的特性結構
-      1. ex: [LC20. Valid Parentheses](https://leetcode.com/problems/valid-parentheses/submissions/)
+      -  解釋: 
+         1. 具有從內向外擴散，或是從外向內收斂的特性結構
+         2. 由內到外每一個值都有相對應的另一個值
+      -  ex: [LC20. Valid Parentheses](https://leetcode.com/problems/valid-parentheses/submissions/)
 
 
 <br>

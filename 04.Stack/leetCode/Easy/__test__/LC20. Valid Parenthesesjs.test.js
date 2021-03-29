@@ -1,6 +1,7 @@
 const {
   isValidWithStackAndIf,
-  isValidWithStackAndHashMap
+  isValidWithStackAndHashMap,
+  isValidWithBruteForce
 } = require('../LC20. Valid Parentheses');
 
 // https://leetcode.com/problems/valid-parentheses/

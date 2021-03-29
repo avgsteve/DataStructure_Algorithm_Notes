@@ -83,7 +83,19 @@
 
 
 ## 其他
-- Jest 測試環境 jsconfig.json <br> ref: [Setting up Visual Studio Code intellisense for Jest globals](https://humanwhocodes.com/snippets/2019/05/jest-globals-intellisense-visual-studio-code/)
+- Jest 測試環境: 在root path 建立 jsconfig.json <br>   
+  jsconfig.json 內容
+  ```
+		{
+			"typeAcquisition": {
+					"include": [
+							"jest"
+					]
+			}
+		}
+	```
+	ref: [Setting up Visual Studio Code intellisense for Jest globals](https://humanwhocodes.com/snippets/2019/05/jest-globals-intellisense-visual-studio-code/)
+  
 
 - VS Code 設定
   - 不要顯示自動生成的dist資料夾
