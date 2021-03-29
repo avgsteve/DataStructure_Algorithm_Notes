@@ -243,7 +243,7 @@ class LinkedList {
       nodeToFindForTail = nodeToFindForTail.next;
     }
     this.tail = nodeToFindForTail;
-    console.log(' nodeToFindForTail 執行過後的list:', this);
+    // console.log(' nodeToFindForTail 執行過後的list:', this);
 
     return this;
 

@@ -5,13 +5,13 @@ var moveZeroes2 = require('../LC283.Move Zeroes'); // https://stackoverflow.com/
 
 
 test('測試 moveZeroes2: [0, 1, 0, 3, 12] ', function () {
-  console.log('moveZeroes: ', moveZeroes2);
+  // console.log('moveZeroes: ', moveZeroes2);
   var nums = [0, 1, 0, 3, 12];
   var ans = [1, 3, 12, 0, 0];
   expect(moveZeroes2(nums)).toEqual(ans);
 });
 test('測試 moveZeroes2: [0, 1, 5,2,0, 3, 12,1,7];', function () {
-  console.log('moveZeroes: ', moveZeroes2);
+  // console.log('moveZeroes: ', moveZeroes2);
   var nums = [0, 1, 5, 2, 0, 3, 12, 1, 7];
   var ans = [1, 5, 2, 3, 12, 1, 7, 0, 0];
   expect(moveZeroes2(nums)).toEqual(ans);

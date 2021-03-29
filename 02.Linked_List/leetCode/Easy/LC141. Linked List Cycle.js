@@ -45,7 +45,7 @@ exports.hasCycle_withTwoPointers = function (head) {
     // }
 
     if (fast.next === slow) {
-      console.log('found cycled!');
+      // console.log('found cycled!');
       return true;
     }
 

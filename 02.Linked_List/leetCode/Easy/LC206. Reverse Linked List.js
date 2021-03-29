@@ -11,14 +11,14 @@ exports.reverseList = function (list) {
     newHead = tmp;
   }
 
-  console.log('reverseList執行過後的list:', JSON.stringify(list));
+  // console.log('reverseList執行過後的list:', JSON.stringify(list));
   list.head = list.tail;
   let nodeToFindForTail = list.head;
   while (nodeToFindForTail.next) {
     nodeToFindForTail = nodeToFindForTail.next;
   }
   list.tail = nodeToFindForTail;
-  console.log(' nodeToFindForTail 執行過後的list:', list);
+  // console.log(' nodeToFindForTail 執行過後的list:', list);
 
 
 
