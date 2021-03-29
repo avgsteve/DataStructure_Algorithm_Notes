@@ -34,9 +34,11 @@
 
 1. Collision 碰撞
    - 不同資料經過hash function處理過後，產生了相同的hash value，造成資料使用了相同的value作為索引編號的狀況稱為碰撞
-   ![collision](https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/HASHTB32.svg/362px-HASHTB32.svg.png)   
-   ![collision](https://www.algolist.net/img/hash-table-chaining.png)
-2. 
+   - 範例
+      - 讓索引指向了同一筆資料 John Smith ![collision](https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/HASHTB32.svg/362px-HASHTB32.svg.png)   
+      - 讓索引指向了同一筆資料 Jack Williams ![collision](https://www.algolist.net/img/hash-table-chaining.png)
+      - 不同字串產生了同樣的hash value "429" ![collision](https://github.com/avgsteve/DataStructure_Algorithm_Notes/blob/main/90.ScreenShot/hashTable_collision.jpg?raw=true)
+   
 
 ***
 
