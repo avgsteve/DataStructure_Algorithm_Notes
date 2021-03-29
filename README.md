@@ -86,7 +86,7 @@
 - Jest 測試環境 jsconfig.json <br> ref: [Setting up Visual Studio Code intellisense for Jest globals](https://humanwhocodes.com/snippets/2019/05/jest-globals-intellisense-visual-studio-code/)
 
 - VS Code 設定
-  - [不要顯示自動生成的dist資料夾](https://github.com/avgsteve/DataStructure_Algorithm_Notes/blob/main/90.ScreenShot/vsCode_dontShowDistFolderjpg.jpg)
+  - [不要顯示自動生成的dist資料夾](https://github.com/avgsteve/DataStructure_Algorithm_Notes/blob/main/90.ScreenShot/vsCode_dontShowDistFolderjpg.jpg?raw=true)
 
 	
 - package.json:
